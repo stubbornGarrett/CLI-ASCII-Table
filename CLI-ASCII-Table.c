@@ -40,20 +40,20 @@ void main(int argc, char** argv)
 	}
 
 	// Prints the table
-  for(int y = 0; y < iRows; y++)
-  {
-    for(int x = 0; x < iCols; x++)
-    {
+	for(int y = 0; y < iRows; y++)
+	{
+		for(int x = 0; x < iCols; x++)
+		{
 			int iNumber = y*iCols+x;
 			if((iNumber > 127 && !bExtTable) || (iNumber > 255 && bExtTable))
 				break;
 
-      if(iNumber < 33)
-        printf("%i:\t   ", iNumber);
-      else
-        printf("%i:\t%c  ", iNumber, iNumber);
-    }
+			if(iNumber < 33)
+				printf("%i:\t   ", iNumber);
+			else
+				printf("%i:\t%c  ", iNumber, iNumber);
+		}
 
-    printf("\n");
-  }
+	printf("\n");
+	}
 }

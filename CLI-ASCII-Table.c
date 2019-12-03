@@ -5,14 +5,13 @@
 
 void main(int argc, char** argv)
 {
-	int iRows=16, iCols=8, c;  
-	bool bExtTable=false;
+	int iRows=16, iCols=8, iArguement;  
+	bool bExtTable=false;	// Prints extended ASCII table if true
 
 	// Check for CLI arguments 
-	// (number of columns and if the extended ASCII table should be printed)
-	while((c = getopt(argc, argv, "c:e")) != -1)
+	while((iArguement = getopt(argc, argv, "c:e")) != -1)
 	{
-		switch(c)
+	switch(iArguement)
 		{
 		case 'c':
 			iCols = atoi(optarg);
@@ -30,13 +29,13 @@ void main(int argc, char** argv)
 	{				
 		iRows = (int)(256/iCols);
 		if(256%iCols)
-			iRows++;
+		iRows++;
 	}
 	else
 	{
 		iRows = (int)(128/iCols);
 		if(128%iCols)
-			iRows++;
+		iRows++;
 	}
 
 	// Prints the table
@@ -45,15 +44,15 @@ void main(int argc, char** argv)
 		for(int x = 0; x < iCols; x++)
 		{
 			int iNumber = y*iCols+x;
+
 			if((iNumber > 127 && !bExtTable) || (iNumber > 255 && bExtTable))
 				break;
 
-			if(iNumber < 33)
-				printf("%i:\t   ", iNumber);
+			if(iNumber < 33 || (iNumber > 127 && iNumber < 160))
+				printf("%3i:    ", iNumber);
 			else
-				printf("%i:\t%c  ", iNumber, iNumber);
+				printf("%3i: %c  ", iNumber, iNumber);
 		}
-
-	printf("\n");
+		printf("\n");
 	}
 }

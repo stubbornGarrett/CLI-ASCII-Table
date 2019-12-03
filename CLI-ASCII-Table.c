@@ -5,13 +5,13 @@
 
 void main(int argc, char** argv)
 {
-	int iRows=16, iCols=8, iArguement;  
+	int iRows=16, iCols=8, iArgument;  
 	bool bExtTable=false;	// Prints extended ASCII table if true
 
 	// Check for CLI arguments 
-	while((iArguement = getopt(argc, argv, "c:e")) != -1)
+	while((iArgument = getopt(argc, argv, "c:e")) != -1)
 	{
-	switch(iArguement)
+	switch(iArgument)
 		{
 		case 'c':
 			iCols = atoi(optarg);

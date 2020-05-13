@@ -11,3 +11,4 @@ Prints the extended ASCII table of 256 characters
 
 ## Tested terminals
 - urxvt
+- Windows Command Prompt
